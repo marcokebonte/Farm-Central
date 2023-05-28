@@ -17,7 +17,6 @@ namespace Farm_Central.Models
         public int employee_id { get; set; }
         public string fullname { get; set; }
         public string email { get; set; }
-        public string emPassword { get; set; }
         public string contact_number { get; set; }
     }
 }

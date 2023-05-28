@@ -9,6 +9,34 @@
         <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
     </section>
 
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Select one of the following: </h1>
+                <div class="btn-group" role="group" aria-label="Button Group">
+                    @Html.ActionLink("Farm Details", "Index", "farm", new {@class = "btn btn-primary btn-lg mr-2" })
+                    @Html.ActionLink("Farmer Details", "Index", "farmers", new {@class = "btn btn-primary btn-lg mr-2" })
+                    @Html.ActionLink("Employee Details", "Index", "employees", new {@class = "btn btn-primary btn-lg mr-2" })
+                    @Html.ActionLink("Product Details", "Index", "products", new {@class = "btn btn-primary btn-lg mr-2" })
+                    @Html.ActionLink("Order Details", "Index", "orders", new {@class = "btn btn-primary btn-lg" })
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Please Login or Register to access Farm Central</h2>
+                <p>
+                    <a href="/Account/Login" class="btn btn-primary btn-lg">Login</a>
+                    <a href="/Account/Register" class="btn btn-primary btn-lg">Register</a>
+                </p>
+            </div>
+        </div>
+    }
+
     <div class="row">
         <section class="col-md-4" aria-labelledby="gettingStartedTitle">
             <h2 id="gettingStartedTitle">Getting started</h2>
@@ -31,3 +59,9 @@
         </section>
     </div>
 </main>
+
+
+
+
+
+

@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Farm_Central.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Farm_Central.Models;
 
 namespace Farm_Central.Controllers
 {
+
+
+    [CustomAuthorize(Roles = "farmer")]
+
+
     public class farmController : Controller
     {
         private farm_centralEntities db = new farm_centralEntities();
@@ -60,6 +61,7 @@ namespace Farm_Central.Controllers
             ViewBag.farmer_id = new SelectList(db.farmers, "farmer_id", "fullname", farm.farmer_id);
             return View(farm);
         }
+
 
         // GET: farm/Edit/5
         public ActionResult Edit(int? id)

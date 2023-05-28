@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Farm_Central.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Farm_Central.Models;
 
 namespace Farm_Central.Controllers
 {
+
+
+    [CustomAuthorize(Roles = "farmer,employee")]
     public class ordersController : Controller
     {
         private farm_centralEntities db = new farm_centralEntities();
