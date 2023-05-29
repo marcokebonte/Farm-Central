@@ -5,15 +5,14 @@
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
         <h1 id="title">Farm Central</h1>
-        <p class="lead">Farm Central is a portal where farmers and employees .</p>
-     
+        <p class="lead">Farm Central is a portal where farmers and employees can list, manage and view various products produced by farmers.</p>
     </section>
 
     @if (User.Identity.IsAuthenticated)
     {
         <div class="row">
             <div class="col-md-12">
-                <h1>Select one of the following: </h1>
+                <h1>Select one of the following:</h1>
                 <div class="btn-group" role="group" aria-label="Button Group">
                     <a href="@Url.Action("Index", "farm")" class="btn btn-primary btn-lg mr-2">Farm Details</a>
                     <a href="@Url.Action("Index", "farmers")" class="btn btn-primary btn-lg mr-2">Farmer Details</a>
@@ -21,7 +20,6 @@
                     <a href="@Url.Action("Index", "products")" class="btn btn-primary btn-lg mr-2">Product Details</a>
                     <a href="@Url.Action("Index", "orders")" class="btn btn-primary btn-lg">Order Details</a>
                     <a href="@Url.Action("Index", "customers")" class="btn btn-primary btn-lg">Customer Details</a>
-
                 </div>
             </div>
         </div>
@@ -39,28 +37,72 @@
         </div>
     }
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
-    </div>
+    @*<div class="row">
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                <h2 id="gettingStartedTitle">Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </section>
+            <section class="col-md-4" aria-labelledby="librariesTitle">
+                <h2 id="librariesTitle">Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </section>
+            <section class="col-md-4" aria-labelledby="hostingTitle">
+                <h2 id="hostingTitle">Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </section>
+        </div>*@
+
+    <style>
+        body {
+            background-color: #f9f5eb;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            color: #582c0d;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #734022;
+            line-height: 1.5;
+        }
+
+        .lead {
+            font-size: 20px;
+        }
+
+        .btn {
+            background-color: #734022;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #582c0d;
+            }
+    </style>
 </main>
+
 
 
 

@@ -36,6 +36,8 @@ namespace Farm_Central.Controllers
             return View(farmer);
         }
 
+
+        [CustomAuthorize(Roles = "Employee")]
         // GET: farmers/Create
         public ActionResult Create()
         {

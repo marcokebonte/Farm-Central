@@ -1,4 +1,5 @@
 ﻿using Farm_Central.Models;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -14,11 +15,35 @@ namespace Farm_Central.Controllers
         private farm_centralEntities db = new farm_centralEntities();
 
         // GET: products
-        public ActionResult Index()
+        public ActionResult Index(string filterBy, string searchString)
         {
             var products = db.products.Include(p => p.farm);
+
+            // Apply filtering based on the selected criteria
+            if (!string.IsNullOrEmpty(filterBy))
+            {
+                if (filterBy == "Type")
+                {
+                    products = products.Where(p => p.type.Contains(searchString));
+                }
+                else if (filterBy == "Date")
+                {
+                    DateTime searchDate;
+                    if (DateTime.TryParse(searchString, out searchDate))
+                    {
+                        products = products.Where(p => p.date_range.HasValue && p.date_range.Value.Date == searchDate.Date);
+                    }
+                }
+                else if (filterBy == "Farm")
+                {
+                    products = products.Where(p => p.farm.name.Contains(searchString));
+                }
+            }
+
             return View(products.ToList());
         }
+
+
 
         // GET: products/Details/5
         public ActionResult Details(int? id)

@@ -40,7 +40,6 @@
           <Property Name="farmer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fullname" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="fPassword" Type="char" MaxLength="64" />
           <Property Name="contact_number" Type="varchar" MaxLength="20" />
           <Property Name="location" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
@@ -52,6 +51,8 @@
           <Property Name="customer_id" Type="int" Nullable="false" />
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="unit_price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="total_price" Type="decimal" Precision="21" Scale="2" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -192,6 +193,8 @@
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="customer" Relationship="Self.FK__orders__customer__2E1BDC42" FromRole="orders" ToRole="customer" />
           <NavigationProperty Name="product" Relationship="Self.FK__orders__product___2F10007B" FromRole="orders" ToRole="product" />
+          <Property Name="unit_price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="total_price" Type="Decimal" Precision="21" Scale="2" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -329,6 +332,8 @@
           <EntitySetMapping Name="orders">
             <EntityTypeMapping TypeName="farm_centralModel.order">
               <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="total_price" ColumnName="total_price" />
+                <ScalarProperty Name="unit_price" ColumnName="unit_price" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
