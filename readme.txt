@@ -1,37 +1,93 @@
-﻿The following files were created to show you the basic operation of Fluent Infrastructure
+# Project Title
 
-/Context
-	-DbContextLocal.cs
-/Controllers
-	-ForumController.cs
-/Mapper
-	-ForumMap.cs
-/Models
-	-Forum.cs
-/Views
-	/Forum
-		-AddReturn.cshtml
-		-New.cshtml
-	/Shared
-		-Index.cshtml
-		
-These files can be deleted without prejudice to your system once you have understood how to operate the Fluent Infrastructure
+This is an application that will allow employees and farmers to manage various functions for a stock management portal
+## Acknowledgements
 
-**** If you do not have the Global.asax file in the project root ***
+ - Varsity College and it's BCAD 3 profs.
+ - God
 
-1. Open Solution Explorer.
-2. Right-click on the project.
-3. Add New Item.
-4. VB or C#
-5. Web.
-6. General.
-7. Global Application Class.
-8. Add the initialization call in your Global.asax:
 
-protected void Application_Start(object sender, EventArgs e)
-{
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-}
+## Authors
 
-See more in: https://github.com/dn32/Fluent.Infrastructure/wiki
+- Marco Kebonte ST10082201
+
+## Features
+
+- Username email display and identification
+- User Registration and Login
+- User Authentication
+- Stock Control
+- Order Control
+- Employee and Farmer Control
+- User authentication
+- Data binding and display
+
+
+## License
+
+
+A testing license is issued to whomever is assessing this application.
+
+## Installation
+
+
+## Related
+
+Here are some related projects
+
+
+
+
+## Tech Stack
+
+Languages used: C#
+HTML/CSS
+JAVASCRIPT
+
+
+
+## Support
+
+For support, email ST10082201@vcconnect.edu.za
+
+
+## Used By
+
+This project is used by the following companies:
+
+- Varsity College Cape Town
+
+## FAQ
+
+#### How do I run this on my local computer?
+
+Replace the database filepath with the filepath of the database on your local machine. To access data, here provided are 6 logins with two user roles. 
+
+
+Employees:
+
+Email: johnathan@farm-central.com
+Password:John@1234
+
+Email: marco@farm-central.com
+Password:Marco@1234
+
+Email: mary@farm-central.com
+Password:Mary@1234
+
+
+
+
+
+Farmers:
+
+Email: branmercedes@farm-central.com
+Password:Brandon@1234
+
+
+Email: wendsand@gmail.com
+Password:Wendy@1234
+
+
+Email: jimmyjo@gmail.com
+Password: Jimmy@1234
