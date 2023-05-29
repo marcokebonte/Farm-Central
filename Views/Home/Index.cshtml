@@ -4,9 +4,9 @@
 
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+        <h1 id="title">Farm Central</h1>
+        <p class="lead">Farm Central is a portal where farmers and employees .</p>
+     
     </section>
 
     @if (User.Identity.IsAuthenticated)
@@ -15,11 +15,13 @@
             <div class="col-md-12">
                 <h1>Select one of the following: </h1>
                 <div class="btn-group" role="group" aria-label="Button Group">
-                    @Html.ActionLink("Farm Details", "Index", "farm", new {@class = "btn btn-primary btn-lg mr-2" })
-                    @Html.ActionLink("Farmer Details", "Index", "farmers", new {@class = "btn btn-primary btn-lg mr-2" })
-                    @Html.ActionLink("Employee Details", "Index", "employees", new {@class = "btn btn-primary btn-lg mr-2" })
-                    @Html.ActionLink("Product Details", "Index", "products", new {@class = "btn btn-primary btn-lg mr-2" })
-                    @Html.ActionLink("Order Details", "Index", "orders", new {@class = "btn btn-primary btn-lg" })
+                    <a href="@Url.Action("Index", "farm")" class="btn btn-primary btn-lg mr-2">Farm Details</a>
+                    <a href="@Url.Action("Index", "farmers")" class="btn btn-primary btn-lg mr-2">Farmer Details</a>
+                    <a href="@Url.Action("Index", "employees")" class="btn btn-primary btn-lg mr-2">Employee Details</a>
+                    <a href="@Url.Action("Index", "products")" class="btn btn-primary btn-lg mr-2">Product Details</a>
+                    <a href="@Url.Action("Index", "orders")" class="btn btn-primary btn-lg">Order Details</a>
+                    <a href="@Url.Action("Index", "customers")" class="btn btn-primary btn-lg">Customer Details</a>
+
                 </div>
             </div>
         </div>
@@ -28,7 +30,7 @@
     {
         <div class="row">
             <div class="col-md-12">
-                <h2>Please Login or Register to access Farm Central</h2>
+                <h2>Please Login or Register to access information</h2>
                 <p>
                     <a href="/Account/Login" class="btn btn-primary btn-lg">Login</a>
                     <a href="/Account/Register" class="btn btn-primary btn-lg">Register</a>
