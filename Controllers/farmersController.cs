@@ -36,6 +36,8 @@ namespace Farm_Central.Controllers
             return View(farmer);
         }
 
+
+        [CustomAuthorize(Roles = "Employee")]
         // GET: farmers/Create
         public ActionResult Create()
         {
@@ -47,7 +49,7 @@ namespace Farm_Central.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "farmer_id,fullname,email,fPassword,contact_number,location")] farmer farmer)
+        public ActionResult Create([Bind(Include = "farmer_id,fullname,email,contact_number,location")] farmer farmer)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +81,7 @@ namespace Farm_Central.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "farmer_id,fullname,email,fPassword,contact_number,location")] farmer farmer)
+        public ActionResult Edit([Bind(Include = "farmer_id,fullname,email,contact_number,location")] farmer farmer)
         {
             if (ModelState.IsValid)
             {

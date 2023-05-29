@@ -18,6 +18,8 @@ namespace Farm_Central.Models
         public int customer_id { get; set; }
         public int product_id { get; set; }
         public int quantity { get; set; }
+        public Nullable<decimal> unit_price { get; set; }
+        public Nullable<decimal> total_price { get; set; }
     
         public virtual customer customer { get; set; }
         public virtual product product { get; set; }

@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.fullname)
+           Full Name
         </dt>
 
         <dd>
@@ -19,23 +19,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.email)
+            Email
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.email)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fPassword)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fPassword)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.contact_number)
+            Contact Number
         </dt>
 
         <dd>
@@ -43,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.location)
+            Location
         </dt>
 
         <dd>
@@ -56,3 +49,63 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.farmer_id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<style>
+    body {
+        background-color: #f9f5eb;
+        font-family: Arial, sans-serif;
+    }
+
+    main {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        color: #582c0d;
+        margin-bottom: 10px;
+    }
+
+    hr {
+        border-color: #734022;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .col-form-label {
+        color: #582c0d;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border-color: #582c0d;
+    }
+
+    .checkbox label {
+        color: #582c0d;
+    }
+
+    .btn {
+        background-color: #734022;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #582c0d;
+        }
+
+    p {
+        color: #734022;
+        line-height: 1.5;
+    }
+</style>

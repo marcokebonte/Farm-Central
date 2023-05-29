@@ -9,49 +9,132 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+
+@using (Html.BeginForm("Index", "products", FormMethod.Get))
+{
+    <div>
+        <label>Filter:</label>
+        @Html.DropDownList("filterBy", new SelectList(new Dictionary<string, string>
+        {
+            {"All", "All"},
+            {"Type", "Type"},
+            {"Date", "Date"},
+            {"Farm", "Farm"}
+        }, "Value", "Key"), "All")
+        <input type="text" name="searchString" placeholder="Search" />
+        <input type="submit" value="Filter" />
+    </div>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.type)
+            Type
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.price)
+            Price in R
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.date_range)
+            Date Range
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.farm.name)
+            Farm Name
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.date_range)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.farm.name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.product_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.product_id })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_range)
+            </td>
+            <td>
+                @Html.ActionLink(item.farm.name, "Details", "farm", new { id = item.farm_id }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.product_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.product_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.product_id })
+            </td>
+        </tr>
+    }
 </table>
+
+
+
+
+<style>
+    body {
+        background-color: #f9f5eb;
+        font-family: Arial, sans-serif;
+    }
+
+    main {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        color: #582c0d;
+        margin-bottom: 10px;
+    }
+
+    hr {
+        border-color: #734022;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .col-form-label {
+        color: #582c0d;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border-color: #582c0d;
+    }
+
+    .checkbox label {
+        color: #582c0d;
+    }
+
+    .btn {
+        background-color: #734022;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #582c0d;
+        }
+
+    p {
+        color: #734022;
+        line-height: 1.5;
+    }
+</style>
+
+

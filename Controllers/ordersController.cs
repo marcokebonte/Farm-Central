@@ -48,10 +48,18 @@ namespace Farm_Central.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "order_id,customer_id,product_id,quantity")] order order)
+        public ActionResult Create([Bind(Include = "order_id,customer_id,product_id,quantity,unit_price,total_price")] order order)
         {
             if (ModelState.IsValid)
             {
+                // Retrieve the unit price from the product table based on the product_id
+                var product = db.products.Find(order.product_id);
+                if (product != null)
+                {
+                    order.unit_price = product.price;
+                    order.total_price = order.unit_price * order.quantity;
+                }
+
                 db.orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,10 +92,18 @@ namespace Farm_Central.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "order_id,customer_id,product_id,quantity")] order order)
+        public ActionResult Edit([Bind(Include = "order_id,customer_id,product_id,quantity,unit_price,total_price")] order order)
         {
             if (ModelState.IsValid)
             {
+                // Retrieve the unit price from the product table based on the product_id
+                var product = db.products.Find(order.product_id);
+                if (product != null)
+                {
+                    order.unit_price = product.price;
+                    order.total_price = order.unit_price * order.quantity;
+                }
+
                 db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -132,4 +148,5 @@ namespace Farm_Central.Controllers
             base.Dispose(disposing);
         }
     }
+
 }

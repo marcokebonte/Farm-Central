@@ -8,7 +8,7 @@ namespace Farm_Central.Controllers
 {
 
 
-    [CustomAuthorize(Roles = "farmer")]
+    [CustomAuthorize(Roles = "farmer,employee")]
     public class customersController : Controller
     {
         private farm_centralEntities db = new farm_centralEntities();
