@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.farmer_id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.fullname, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.fullname, "Full Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.fullname, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.fullname, "", new { @class = "text-danger" })
@@ -26,23 +26,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.email, "Email", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.fPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fPassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fPassword, "", new { @class = "text-danger" })
-            </div>
-        </div>
+      
 
         <div class="form-group">
-            @Html.LabelFor(model => model.contact_number, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.contact_number, "Contact Number" ,htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.contact_number, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.contact_number, "", new { @class = "text-danger" })
@@ -50,7 +44,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.location, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.location, "Location", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.location, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.location, "", new { @class = "text-danger" })
@@ -69,6 +63,66 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+
+<style>
+    body {
+        background-color: #f9f5eb;
+        font-family: Arial, sans-serif;
+    }
+
+    main {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        color: #582c0d;
+        margin-bottom: 10px;
+    }
+
+    hr {
+        border-color: #734022;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .col-form-label {
+        color: #582c0d;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border-color: #582c0d;
+    }
+
+    .checkbox label {
+        color: #582c0d;
+    }
+
+    .btn {
+        background-color: #734022;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #582c0d;
+        }
+
+    p {
+        color: #734022;
+        line-height: 1.5;
+    }
+</style>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -6,52 +6,113 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+@if (User.IsInRole("Employee"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.fullname)
+            Full Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            Email
+        </th>
+
+        <th>
+            Contact Number
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fPassword)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.contact_number)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.location)
+            Location
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fPassword)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contact_number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.location)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.farmer_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.farmer_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.farmer_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
 
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.farmer_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.farmer_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.farmer_id })
+            </td>
+        </tr>
+    }
+
+    <style>
+        body {
+            background-color: #f9f5eb;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #582c0d;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border-color: #734022;
+        }
+
+        .row {
+            margin-bottom: 20px;
+        }
+
+        .col-form-label {
+            color: #582c0d;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border-color: #582c0d;
+        }
+
+        .checkbox label {
+            color: #582c0d;
+        }
+
+        .btn {
+            background-color: #734022;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #582c0d;
+            }
+
+        p {
+            color: #734022;
+            line-height: 1.5;
+        }
+    </style>
 </table>

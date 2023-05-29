@@ -44,7 +44,7 @@ namespace Farm_Central.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "employee_id,fullname,email,emPassword,contact_number")] employee employee)
+        public ActionResult Create([Bind(Include = "employee_id,fullname,email,contact_number")] employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -56,27 +56,12 @@ namespace Farm_Central.Controllers
             return View(employee);
         }
 
-        // GET: employees/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            employee employee = db.employees.Find(id);
-            if (employee == null)
-            {
-                return HttpNotFound();
-            }
-            return View(employee);
-        }
-
         // POST: employees/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employee_id,fullname,email,emPassword,contact_number")] employee employee)
+        public ActionResult Edit([Bind(Include = "employee_id,fullname,email,contact_number")] employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +71,7 @@ namespace Farm_Central.Controllers
             }
             return View(employee);
         }
+
 
         // GET: employees/Delete/5
         public ActionResult Delete(int? id)

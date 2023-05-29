@@ -23,7 +23,6 @@ namespace Farm_Central.Models
         public int farmer_id { get; set; }
         public string fullname { get; set; }
         public string email { get; set; }
-        public string fPassword { get; set; }
         public string contact_number { get; set; }
         public string location { get; set; }
     

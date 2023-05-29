@@ -8,7 +8,7 @@ namespace Farm_Central.Controllers
 {
 
 
-    [CustomAuthorize(Roles = "farmer")]
+    [CustomAuthorize(Roles = "farmer, employee")]
 
 
     public class farmController : Controller
