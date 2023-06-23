@@ -279,6 +279,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App_Data\Farm Central.mdf" />
+    <Content Include="App_Data\Farm Central_log.ldf">
+      <DependentUpon>Farm Central.mdf</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="App_Data\FarmCentral_genData.mdf" />
+    <Content Include="App_Data\FarmCentral_genData_log.ldf">
+      <DependentUpon>FarmCentral_genData.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -425,9 +433,7 @@
     <Content Include="Views\Shared\Unauthorized.cshtml" />
     <Content Include="Views\Shared\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
